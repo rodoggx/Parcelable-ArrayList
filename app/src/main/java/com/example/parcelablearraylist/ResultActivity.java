@@ -11,18 +11,18 @@ public class ResultActivity extends AppCompatActivity {
 
     private static final String TAG = "ResultActivityTAG_";
     private ArrayList<User> userList;
-    private TextView mTextView;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-        mTextView = (TextView) findViewById(R.id.result_TxtVw);
+        textView = (TextView) findViewById(R.id.result_TxtVw);
 
         userList = getIntent().getParcelableArrayListExtra("users");
         for (User user : userList) {
             Log.d(TAG, "onCreate: " + user);
-            mTextView.setText(mTextView.getText() + user.getName().toString() + "\n");
+            textView.setText(textView.getText() + user.getName().toString() + "\n");
         }
     }
 }

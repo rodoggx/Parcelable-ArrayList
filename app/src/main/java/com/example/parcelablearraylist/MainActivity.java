@@ -12,27 +12,27 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivityTAG_";
-    private ArrayList<User> userList;
     private User user;
-    private EditText mEditText;
+    private ArrayList<User> userList;
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mEditText = (EditText) findViewById(R.id.main_EditText);
+        editText = (EditText) findViewById(R.id.main_EditText);
         userList = new ArrayList<>();
     }
 
     public void addUser(View view) {
-        user = new User(mEditText.getText().toString());
+        user = new User(editText.getText().toString());
         userList.add(user);
         Log.d(TAG, "addUser: " + user);
     }
 
     public void doMagic(View view) {
-        Intent mIntent = new Intent(getApplicationContext(), ResultActivity.class);
-        mIntent.putParcelableArrayListExtra("users", userList);
-        startActivity(mIntent);
+        Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
+        intent.putParcelableArrayListExtra("users", userList);
+        startActivity(intent);
     }
 }
