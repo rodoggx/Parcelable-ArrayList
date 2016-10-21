@@ -21,7 +21,6 @@ public class ResultActivity extends AppCompatActivity {
 
         userList = getIntent().getParcelableArrayListExtra("users");
         for (User user : userList) {
-            Log.d(TAG, "onCreate: " + user);
             textView.setText(textView.getText() + user.getName().toString() + "\n");
         }
     }
